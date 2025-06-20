@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrenamientos Personalizados – Agustina Rivero</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de la fuente Poppins de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Define la fuente Poppins */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8; /* Un fondo blanco-gris muy suave */
+            color: #333333; /* Un gris oscuro para el texto principal */
+            line-height: 1.6;
+        }
+        /* Estilos personalizados para el contenido */
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: #ffffff; /* Fondo blanco para el contenedor principal */
+            border-radius: 1.5rem; /* Esquinas más redondeadas */
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.08); /* Sombra pronunciada */
+        }
+        h1 {
+            color: #4a789a; /* Color azul del logo para el título principal */
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        h2 {
+            color: #2c3e50; /* Gris oscuro casi negro para subtítulos (del texto del logo) */
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e0e0e0; /* Línea divisoria suave */
+            padding-bottom: 0.5rem;
+        }
+        .section-text {
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style: none; /* Eliminar viñetas por defecto */
+            padding-left: 0;
+        }
+        ul li {
+            background-color: #f5f5f5; /* Fondo muy claro para elementos de lista */
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem; /* Esquinas redondeadas para listas */
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05); /* Sombra ligera mejorada */
+        }
+        ul li::before {
+            content: '✅'; /* Icono de checkmark más visible */
+            margin-right: 0.75rem;
+            font-size: 1.2rem;
+        }
+        .price-card {
+            background-color: #ffffff; /* Fondo blanco para las tarjetas de precio */
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 6px 10px -1px rgba(0, 0, 0, 0.08), 0 3px 5px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out;
+            border: 1px solid #e0e0e0; /* Borde suave */
+        }
+        .price-card:hover {
+            transform: translateY(-5px); /* Efecto hover */
+        }
+        .price-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #4a789a; /* Color del precio, azul del logo */
+            margin-bottom: 0.5rem;
+        }
+        .infinity-benefit {
+            background-color: #eaf2f8; /* Un azul muy claro como fondo para el beneficio Infinity */
+            border-left: 5px solid #4a789a; /* Borde del color principal del logo */
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-top: 1.5rem;
+            font-style: italic;
+            color: #2c3e50; /* Color de texto oscuro para contraste */
+        }
+        .how-it-works-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        .how-it-works-number {
+            background-color: #4a789a; /* Azul del logo para los números de pasos */
+            color: white;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0; /* Evita que el número se encoja */
+        }
+        .text-by-agustina {
+            color: #82b0d7; /* Azul más claro del texto "COACH FITNESS" del logo */
+        }
+        .text-red-600 {
+            color: #dc3545; /* Rojo para el aviso de no presencial */
+        }
+        .text-green-700 {
+            color: #28a745; /* Verde para los precios de socias Infinity */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Encabezado con logo -->
+        <header class="text-center mb-8">
+            <!-- Placeholder para el logo -->
+            <img src="https://placehold.co/300x150/f8f8f8/4a789a?text=TU+LOGO+AQU%C3%8D" alt="Logo Agustina Rivero Coach Fitness" class="mx-auto mb-4 rounded-lg shadow-md">
+            <h1 class="text-blue-700 text-4xl font-extrabold mb-2">
+                ENTRENAMIENTOS PERSONALIZADOS
+            </h1>
+            <p class="text-xl font-semibold text-gray-700">
+                PLAN ONLINE FEMENINO
+            </p>
+            <p class="text-by-agustina text-2xl font-bold mt-2">
+                By Agustina Rivero
+            </p>
+        </header>
+
+        <!-- Sección: ¿QUÉ INCLUYE EL SERVICIO? -->
+        <section class="mb-8 p-4 bg-white rounded-xl shadow-sm">
+            <h2 class="text-gray-800 font-bold">💪 ¿QUÉ INCLUYE EL SERVICIO?</h2>
+            <ul class="space-y-3">
+                <li>Rutina personalizada según tu objetivo y nivel</li>
+                <li>Tips nutricionales para acompañar tu entrenamiento</li>
+                <li>Seguimiento online</li>
+            </ul>
+            <p class="text-red-600 font-bold mt-4 text-lg">
+                ⚠️ No es entrenamiento presencial
+            </p>
+        </section>
+
+        <!-- Sección: ¿QUÉ RECIBÍS? -->
+        <section class="mb-8 p-4 bg-white rounded-xl shadow-sm">
+            <h2 class="text-gray-800 font-bold">📦 ¿QUÉ RECIBÍS?</h2>
+            <ul class="space-y-3">
+                <li>PDF con rutina semanal explicada</li>
+                <li>Tips de alimentación y suplementación</li>
+                <li>Recomendaciones para potenciar tus entrenamientos</li>
+                <li>Plan adaptado a tu disponibilidad, objetivo y experiencia</li>
+            </ul>
+        </section>
+
+        <!-- Sección: ¿POR QUÉ PERSONALIZADO? -->
+        <section class="mb-8 p-4 bg-white rounded-xl shadow-sm">
+            <h2 class="text-gray-800 font-bold">🧠 ¿POR QUÉ PERSONALIZADO?</h2>
+            <p class="section-text">
+                Porque cada cuerpo es único, y tu plan también debe serlo.
+            </p>
+            <p class="section-text">
+                Hecho por una entrenadora que te acompaña con cercanía y experiencia.
+            </p>
+        </section>
+
+        <!-- Sección: DURACIÓN DEL PLAN -->
+        <section class="mb-8 p-4 bg-white rounded-xl shadow-sm">
+            <h2 class="text-gray-800 font-bold">🗓️ DURACIÓN DEL PLAN</h2>
+            <p class="section-text">
+                Plan mensual diseñado para entrenar durante 4 semanas y luego renovar.
+            </p>
+        </section>
+
+        <!-- Sección: PLANES -->
+        <section class="mb-8 p-4 bg-white rounded-xl shadow-sm">
+            <h2 class="text-gray-800 font-bold">💰 PLANES</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <!-- Tarjeta de Plan: Rutina personalizada -->
+                <div class="price-card">
+                    <h3 class="text-xl font-semibold mb-2">🔸 Rutina personalizada</h3>
+                    <p class="price-value">$1400</p>
+                    <p class="text-lg text-gray-600">(<span class="font-bold text-green-700">$1000</span> socias Infinity)</p>
+                </div>
+
+                <!-- Tarjeta de Plan: Rutina + tips nutricionales -->
+                <div class="price-card">
+                    <h3 class="text-xl font-semibold mb-2">🔸 Rutina + tips nutricionales</h3>
+                    <p class="price-value">$1700</p>
+                    <p class="text-lg text-gray-600">(<span class="font-bold text-green-700">$1300</span> socias Infinity)</p>
+                </div>
+            </div>
+
+            <!-- Beneficio exclusivo para socias Infinity -->
+            <div class="infinity-benefit">
+                <p class="font-semibold text-blue-800">✨ Beneficio exclusivo para socias Infinity:</p>
+                <p class="text-blue-900">Presencia de la instructora Agustina Rivero en sala, de 10:00 a 15:00 hs.</p>
+            </div>
+        </section>
+
+        <!-- Sección: ¿CÓMO TRABAJAMOS? -->
+        <section class="p-4 bg-white rounded-xl shadow-sm">
+            <h2 class="text-gray-800 font-bold">⚙️ ¿CÓMO TRABAJAMOS?</h2>
+            <div class="space-y-4 mt-4">
+                <div class="how-it-works-item">
+                    <span class="how-it-works-number">1</span>
+                    <p>Me escribís con tu nombre, objetivo y plan deseado</p>
+                </div>
+                <div class="how-it-works-item">
+                    <span class="how-it-works-number">2</span>
+                    <p>Realizás el pago (efectivo o transferencia)</p>
+                </div>
+                <div class="how-it-works-item">
+                    <span class="how-it-works-number">3</span>
+                    <p>En 24 a 48 hs recibís tu plan personalizado en PDF</p>
+                </div>
+                <div class="how-it-works-item">
+                    <span class="how-it-works-number">4</span>
+                    <p>Lo implementás con mis recomendaciones</p>
+                </div>
+                <div class="how-it-works-item">
+                    <span class="how-it-works-number">5</span>
+                    <p>Tenés seguimiento para dudas y ajustes durante el mes</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
