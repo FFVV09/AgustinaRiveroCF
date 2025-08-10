@@ -3,230 +3,1115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrenamientos Personalizados – Agustina Rivero</title>
+    <title>Agustina Rivero Coach Fitness - Entrenamientos Personalizados</title>
     <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Carga de la fuente Poppins de Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Poppins (para el cuerpo) y Montserrat (para títulos) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Define la fuente Poppins */
+        /* Define las fuentes */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f8f8; /* Un fondo blanco-gris muy suave */
-            color: #333333; /* Un gris oscuro para el texto principal */
+            background-color: #ffffff; /* Fondo blanco completo */
+            color: #333333; /* Gris oscuro para el texto principal */
             line-height: 1.6;
+            padding-top: 4rem; /* Espacio para la barra de navegación fija en móvil */
         }
-        /* Estilos personalizados para el contenido */
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 1.5rem;
-            background-color: #ffffff; /* Fondo blanco para el contenedor principal */
-            border-radius: 1.5rem; /* Esquinas más redondeadas */
-            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.08); /* Sombra pronunciada */
+        /* Clase para títulos con fuente Montserrat */
+        .font-heading-montserrat {
+            font-family: 'Montserrat', sans-serif;
         }
+
+        /* Títulos principales (H1) */
         h1 {
-            color: #4a789a; /* Color azul del logo para el título principal */
-            font-size: 2.5rem;
+            color: #4d98c5; /* Color azul de la marca */
+            font-size: 2rem; /* Ajustar tamaño de fuente para móvil */
             font-weight: 700;
             margin-bottom: 0.5rem;
             text-align: center;
         }
+        /* Subtítulos de sección (H2) */
         h2 {
             color: #2c3e50; /* Gris oscuro casi negro para subtítulos (del texto del logo) */
-            font-size: 1.8rem;
+            font-size: 1.5rem; /* Ajustar tamaño de fuente para móvil */
+            font-weight: 700; /* Más negrita para H2 */
+            margin-top: 1.5rem; /* Reducir margen superior */
+            margin-bottom: 0.8rem; /* Reducir margen inferior */
+            border-bottom: none; /* Eliminar borde inferior */
+            padding-bottom: 0; /* Eliminar padding */
+            text-align: center; /* Centrar H2 */
+        }
+        /* Títulos de tarjetas (H3) */
+        h3 {
+            color: #4d98c5; /* Color azul de la marca */
+            font-size: 1.25rem; /* Ajustar tamaño de fuente para móvil */
             font-weight: 600;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #e0e0e0; /* Línea divisoria suave */
-            padding-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
         .section-text {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
+
+        /* Estilos de listas (ticks) */
         ul {
             list-style: none; /* Eliminar viñetas por defecto */
             padding-left: 0;
+            width: 100%; /* Asegura que la lista ocupe el ancho completo para alinear los ítems */
         }
         ul li {
             background-color: #f5f5f5; /* Fondo muy claro para elementos de lista */
-            padding: 0.75rem 1rem;
+            padding: 0.6rem 0.8rem; /* Reducir padding en móvil */
             border-radius: 0.75rem; /* Esquinas redondeadas para listas */
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem; /* Reducir margen */
             display: flex;
             align-items: center;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05); /* Sombra ligera mejorada */
+            text-align: left; /* Alinea el texto de los ítems a la izquierda */
+            font-size: 0.9rem; /* Ajustar tamaño de fuente */
         }
         ul li::before {
             content: '✅'; /* Icono de checkmark más visible */
-            margin-right: 0.75rem;
-            font-size: 1.2rem;
+            margin-right: 0.6rem; /* Ajustar margen */
+            font-size: 1.1rem; /* Ajustar tamaño de icono */
+            flex-shrink: 0; /* Evita que el icono se encoja */
         }
-        .price-card {
-            background-color: #ffffff; /* Fondo blanco para las tarjetas de precio */
+
+        /* Estilos de tarjetas generales */
+        .card {
+            background-color: white;
+            border-radius: 1rem; /* Rounded corners */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1-px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem; /* Default padding */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-left: 4px solid #4d98c5; /* Borde lateral del color de la marca */
+            transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Efecto hover */
+            box-shadow: 0 8px 12px -2px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Estilos específicos para las tarjetas de plan */
+        .plan-card {
+            background-color: #ffffff;
             padding: 1.5rem;
             border-radius: 1rem;
             box-shadow: 0 6px 10px -1px rgba(0, 0, 0, 0.08), 0 3px 5px -1px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s ease-in-out;
             border: 1px solid #e0e0e0; /* Borde suave */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center; /* Asegura que el contenido esté centrado */
+            justify-content: space-between; /* Distribute space vertically */
+            height: 100%; /* Ensure card takes full height in grid */
         }
-        .price-card:hover {
-            transform: translateY(-5px); /* Efecto hover */
+        .plan-card h3 {
+            font-size: 1.4rem; /* Adjusted title size, slightly smaller */
+            font-weight: 700; /* Make title bolder */
+            text-align: center; /* Center the title */
+            color: #4d98c5; /* Brand blue for the main title of the plan */
+            margin-bottom: 0.5rem; /* Space between title and subtitle */
         }
-        .price-value {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #4a789a; /* Color del precio, azul del logo */
+        .plan-card .plan-subtitle {
+            font-size: 0.95rem; /* Adjust subtitle size */
+            color: #555555; /* Softer color for subtitle */
+            text-align: center; /* Center the subtitle */
+            margin-bottom: 1rem; /* Space below subtitle */
+        }
+        .plan-card .price-container {
+            display: flex;
+            align-items: baseline;
+            justify-content: center; /* Center the price */
+            margin-top: 1rem; /* Add some space above the price */
             margin-bottom: 0.5rem;
         }
-        .infinity-benefit {
-            background-color: #eaf2f8; /* Un azul muy claro como fondo para el beneficio Infinity */
-            border-left: 5px solid #4a789a; /* Borde del color principal del logo */
-            padding: 1rem;
-            border-radius: 0.75rem;
-            margin-top: 1.5rem;
-            font-style: italic;
-            color: #2c3e50; /* Color de texto oscuro para contraste */
+        .plan-card .price-value {
+            font-size: 2rem; /* Larger price value */
+            font-weight: 700;
+            color: #4d98c5; /* Brand blue */
+            margin: 0; /* Remove default margins */
         }
-        .how-it-works-item {
+        .plan-card .price-unit {
+            font-size: 1rem; /* Smaller size for /mes */
+            color: #888888; /* Grey color for /mes */
+            margin-left: 0.25rem;
+            font-weight: 400; /* Normal weight for /mes */
+        }
+
+        /* Consistent height for plan features list */
+        .plan-card ul {
+            list-style: none; /* Eliminar viñetas por defecto */
+            padding-left: 0;
+            width: 100%; /* Asegura que la lista ocupe el ancho completo para alinear los ítems */
+            display: flex; /* Use flexbox for the ul */
+            flex-direction: column; /* Stack list items */
+            justify-content: flex-start; /* Align items to the top */
+            flex-grow: 1; /* Allow the ul to grow and fill space */
+            margin-bottom: 1rem; /* Ajustar margen para que no se pegue al precio */
+        }
+        ul li {
+            background-color: #f5f5f5; /* Fondo muy claro para elementos de lista */
+            padding: 0.6rem 0.8rem; /* Reducir padding en móvil */
+            border-radius: 0.75rem; /* Esquinas redondeadas para listas */
+            margin-bottom: 0.4rem; /* Reducir margen */
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 1rem;
+            align-items: center; /* Centrar verticalmente el contenido del ítem */
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05); /* Sombra ligera mejorada */
+            text-align: left; /* Alinea el texto de los ítems a la izquierda */
+            font-size: 0.9rem; /* Ajustar tamaño de fuente */
+            flex-shrink: 0; /* Prevent list items from shrinking */
+            min-height: 4.5rem; /* Establecer una altura mínima para cada ítem de la lista (para 2 líneas) */
         }
-        .how-it-works-number {
-            background-color: #4a789a; /* Azul del logo para los números de pasos */
+
+        /* Nuevo estilo para el contenedor principal de contenido de la tarjeta de plan */
+        .plan-content-main {
+            flex-grow: 1; /* Permite que este div ocupe el espacio disponible */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra el contenido horizontalmente */
+            width: 100%; /* Asegura que ocupe el ancho completo */
+        }
+
+        /* Nuevo estilo para el pie de la tarjeta de plan */
+        .plan-footer {
+            width: 100%; /* Asegura que ocupe el ancho completo */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra el contenido horizontalmente */
+            justify-content: flex-end; /* Alinea el contenido al final */
+        }
+
+        /* Estilo para el placeholder invisible */
+        .hidden-placeholder {
+            visibility: hidden;
+            height: 6rem; /* Altura estimada del bloque de información visible */
+            margin-top: 0.5rem; /* Mantener el margen superior para consistencia */
+        }
+
+
+        /* Botones primarios */
+        .btn-primary {
+            background-color: #4d98c5; /* Color azul de la marca */
             color: white;
-            border-radius: 50%;
-            width: 2rem;
-            height: 2rem;
+            padding: 0.7rem 1.5rem; /* Reducir padding en móvil */
+            border-radius: 9999px; /* Completamente redondeado */
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .btn-primary:hover {
+            background-color: #3b7eab; /* Tono más oscuro al pasar el mouse */
+            box-shadow: 0 8px 12px -2px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Estilo específico para el botón dentro del hero-section */
+        .hero-section .btn-primary {
+            background-color: #4d98c5; /* Fondo del color de la marca */
+            color: white; /* Texto blanco */
+        }
+
+        .hero-section .btn-primary:hover {
+            background-color: #3b7eab; /* Tono más oscuro del color de la marca al pasar el mouse */
+            color: white; /* Texto blanco */
+        }
+
+
+        /* Secciones */
+        .hero-section {
+            background-color: white; /* Fondo blanco para el banner */
+            padding: 2rem 1rem; /* Reducir padding en móvil */
+            text-align: center;
+            border-radius: 0; /* Eliminar redondeo para ancho completo */
+            margin-bottom: 1.5rem; /* Reducir margen */
+            min-height: auto; /* Altura automática en móvil */
+            box-shadow: none; /* Eliminar sombra para ancho completo */
+        }
+        .hero-section h1 {
+            color: #4d98c5; /* Celeste para el texto del banner */
+            font-size: 2.2rem; /* Ajustar tamaño de fuente para móvil */
+            margin-bottom: 0.8rem;
+            line-height: 1.2; /* Ajuste de altura de línea para mejor legibilidad */
+            font-weight: 800; /* Más negrita para mayor impacto */
+        }
+        .hero-section .subtitle {
+            color: #333333; /* Gris oscuro para el subtítulo del banner */
+            font-size: 1rem; /* Ajustar tamaño de fuente para móvil */
+            margin-bottom: 1.5rem;
+        }
+
+        .about-me-section {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            margin-right: 1rem;
-            flex-shrink: 0; /* Evita que el número se encoja */
+            flex-direction: column; /* Siempre en columna para móvil y desktop */
+            align-items: center; /* Centrar horizontalmente */
+            gap: 1rem; /* Reducir margen */
+            padding: 1.5rem; /* Reducir padding */
+            margin-top: 2rem; /* Ajustar margen superior */
+            background-color: #ffffff;
+            border-radius: 0; /* Eliminar redondeo para ancho completo */
+            box-shadow: none; /* Eliminar sombra para ancho completo */
         }
-        .text-by-agustina {
-            color: #82b0d7; /* Azul más claro del texto "COACH FITNESS" del logo */
+        .about-me-title {
+            font-size: 2rem; /* Ajustar tamaño de fuente para móvil */
+            text-align: center;
+            color: #4d98c5; /* Color de la marca */
+            font-weight: 700;
+            width: auto; /* Eliminar ancho fijo */
+            white-space: nowrap; /* Asegura que el título no se rompa en varias líneas */
+            border-bottom: none; /* Asegurar que no haya borde */
+            padding-bottom: 0; /* Asegurar que no haya padding */
         }
-        .text-red-600 {
-            color: #dc3545; /* Rojo para el aviso de no presencial */
+        .about-me-text {
+            font-size: 0.9rem; /* Ajustar tamaño de fuente para móvil */
+            text-align: center;
+            color: #2d3748;
+            width: 100%; /* Asegurar que ocupe el ancho completo */
+            max-width: 800px; /* Añadir un max-width para legibilidad en ancho completo */
         }
-        .text-green-700 {
-            color: #28a745; /* Verde para los precios de socias Infinity */
+
+        /* Sección "¿Por qué elegir?" */
+        .benefits-grid {
+            display: flex; /* Usar flexbox para control de dirección */
+            flex-direction: column; /* Por defecto, apilar verticalmente en móvil */
+            gap: 1rem; /* Espacio entre tarjetas */
+            margin-top: 1rem;
+            padding: 0 1rem; /* Añadir padding horizontal para ancho completo */
+        }
+        .benefit-card {
+            padding: 1.25rem; /* Padding uniforme para todas las direcciones */
+            width: 100%; /* Asegurar que la tarjeta ocupe todo el ancho */
+            display: flex; /* Make it a flex container */
+            flex-direction: row; /* Arrange items in a row */
+            align-items: flex-start; /* Align items to the start (top) of the cross axis */
+            text-align: left; /* Align text to the left within the card */
+        }
+        .benefit-card .icon {
+            font-size: 2.5rem; /* Ajustar tamaño de icono */
+            color: #4d98c5; /* Color de la marca */
+            margin-right: 0.8rem; /* Add space to the right of the icon */
+            margin-bottom: 0; /* Remove vertical margin */
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+        .benefit-card .text-content { /* New container for title and paragraph */
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Allow text content to grow */
+            min-height: 5rem; /* Altura mínima para el contenedor de texto */
+        }
+        .benefit-card h3 {
+            font-size: 1.1rem; /* Ajustar tamaño de fuente */
+            color: #2d3748;
+            margin-bottom: 0.2rem; /* Reduce space below title */
+        }
+        .benefit-card p {
+            font-size: 0.85rem; /* Ajustar tamaño de fuente */
+            color: #555555;
+            margin-bottom: 0; /* Eliminar margen inferior del párrafo */
+        }
+        .why-choose-title {
+            font-size: 1.8rem; /* Ajustar tamaño de fuente */
+            margin-bottom: 1rem;
+            color: #4d98c5; /* Color de la marca */
+            font-weight: 700;
+        }
+
+        /* Sección "Cómo empezar" */
+        .how-to-start-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Por defecto una columna para móvil */
+            gap: 1rem;
+            margin-top: 1rem;
+            padding: 0 1rem; /* Añadir padding horizontal para ancho completo */
+        }
+        .how-to-start-card {
+            padding: 1rem;
+            min-height: 130px; /* Ajustar altura mínima */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centrar contenido verticalmente */
+            align-items: center; /* Centrar contenido horizontalmente */
+        }
+        .how-to-start-card .number {
+            font-size: 2rem; /* Ajustar tamaño de fuente */
+            font-weight: 700;
+            color: #4d98c5; /* Color de la marca */
+            margin-bottom: 0.2rem; /* Reducir espacio debajo del número */
+        }
+        .how-to-start-card .title {
+            font-size: 1rem; /* Ajustar tamaño de fuente */
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.4rem; /* Reducir espacio debajo del título */
+        }
+        .how-to-start-card p {
+            font-size: 0.85rem; /* Ajustar tamaño de fuente */
+            color: #555555;
+            line-height: 1.3; /* Ajustar altura de línea */
+        }
+
+        /* Sección "Elegí tu plan" */
+        .plans-section { /* Nueva clase para la sección de planes para manejar el padding */
+            padding: 1.5rem 1rem; /* Padding horizontal para ancho completo */
+            background-color: #ffffff;
+            border-radius: 0; /* Eliminar redondeo */
+            box-shadow: none; /* Eliminar sombra */
+            margin-bottom: 1.5rem;
+        }
+        .plans-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .plans-header h2 {
+            font-size: 1.8rem; /* Ajustar tamaño de fuente */
+            margin-bottom: 0.4rem;
+            color: #4d98c5; /* Color de la marca */
+            font-weight: 700;
+        }
+        .plans-header p {
+            font-size: 1rem; /* Ajustar tamaño de fuente */
+            color: #555555;
+        }
+
+        /* Información centrada (horarios, ubicación, cupos) */
+        .centered-info {
+            text-align: center;
+            margin-top: 0.5rem; /* Reducir margen */
+            font-size: 0.75rem; /* Ajustar tamaño de fuente general para info: más pequeño */
+            color: #555555; /* Color consistente */
+            min-height: 6rem; /* Ensure consistent height for this block */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Align content to the bottom */
+            width: 100%;
+        }
+        .centered-info .info-line {
+            display: flex;
+            flex-direction: column; /* Icono arriba del texto */
+            align-items: center; /* Centrar horizontalmente */
+            margin-bottom: 0.5rem; /* Espacio entre líneas */
+        }
+        .centered-info .info-line .icon {
+            font-size: 1.2rem; /* Ajustar tamaño de icono: más pequeño */
+            margin-bottom: 0.25rem; /* Espacio entre icono y texto */
+        }
+        .centered-info .info-line .text {
+            line-height: 1.2; /* Ajustar altura de línea para texto apilado */
+        }
+        .centered-info .text-red-600 {
+            font-size: 0.75rem; /* Ajustar tamaño para que destaque, ahora igual que el resto */
+            font-weight: 700; /* Más negrita */
+        }
+
+        /* Sección CTA Final */
+        .cta-final-section {
+            margin-top: 2rem; /* Ajustar margen */
+            padding: 1.5rem; /* Reducir padding */
+            background-color: #ffffff;
+            border-radius: 0; /* Eliminar redondeo */
+            box-shadow: none; /* Eliminar sombra */
+            text-align: center;
+        }
+        .cta-final-section h2 {
+            font-size: 1.8rem; /* Ajustar tamaño de fuente */
+            margin-bottom: 0.8rem;
+            color: #4d98c5; /* Color de la marca */
+            font-weight: 700;
+        }
+        .cta-final-section p {
+            font-size: 1rem; /* Ajustar tamaño de fuente */
+            margin-bottom: 1.5rem;
+            color: #555555;
+        }
+
+
+        /* Media query para pantallas grandes (desktop) */
+        @media (min-width: 768px) {
+            body {
+                padding-top: 5rem; /* Volver al padding original para desktop */
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+                padding-bottom: 0.5rem;
+            }
+            h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            .section-text {
+                margin-bottom: 1rem;
+            }
+            ul li {
+                padding: 0.75rem 1rem;
+                margin-bottom: 0.5rem;
+                font-size: 1rem;
+                min-height: 4.5rem; /* Mantener altura mínima para desktop */
+            }
+            ul li::before {
+                margin-right: 0.75rem;
+                font-size: 1.2rem;
+            }
+            .plan-card {
+                padding: 1.5rem;
+            }
+            .price-value {
+                font-size: 1.75rem;
+                margin-bottom: 0.5rem;
+            }
+            .price-unit {
+                font-size: 0.9rem;
+                margin-left: 0.25rem;
+            }
+            .how-it-works-number {
+                width: 2rem;
+                height: 2rem;
+                margin-right: 1rem;
+                font-size: 1.2rem;
+            }
+            .hero-section {
+                padding: 3rem 1.5rem;
+                margin-bottom: 2rem;
+                min-height: 250px;
+            }
+            .hero-section h1 {
+                font-size: 2.8rem;
+                margin-bottom: 1rem;
+                line-height: 1.1; /* Ajuste de altura de línea para mejor legibilidad */
+            }
+            .hero-section .subtitle {
+                font-size: 1.3rem;
+                margin-bottom: 2rem;
+            }
+            .call-to-action-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+            .navbar-logo {
+                height: 40px; /* Volver al tamaño original para desktop */
+            }
+            .about-me-section {
+                flex-direction: column; /* Mantiene en columna para desktop también */
+                align-items: center; /* Centra los elementos */
+                text-align: center; /* Centra el texto */
+                gap: 1.5rem;
+                padding: 2.5rem;
+                margin-top: 4rem;
+            }
+            .about-me-title {
+                font-size: 3.5rem;
+                text-align: center; /* Centra el título */
+                width: auto; /* Eliminar ancho fijo */
+            }
+            .about-me-text {
+                width: 100%; /* Ocupa todo el ancho disponible */
+                text-align: center; /* Centra el texto */
+                font-size: 1rem;
+                max-width: 800px; /* Mantener max-width para legibilidad */
+            }
+            .benefits-grid {
+                /* Revertido a flex column for all screen sizes as requested */
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+                padding: 0 2rem; /* Ajustar padding horizontal para desktop */
+            }
+            .benefit-card {
+                padding: 1.5rem; /* Volver al padding original para desktop */
+            }
+            .benefit-card .icon {
+                font-size: 3rem;
+                margin-bottom: 0; /* Remove vertical margin */
+                margin-right: 1rem; /* Add space to the right of the icon */
+            }
+            .benefit-card .text-content {
+                min-height: 6rem; /* Ajustar altura mínima para desktop */
+            }
+            .benefit-card h3 {
+                font-size: 1.25rem;
+            }
+            .benefit-card p {
+                font-size: 0.95rem;
+            }
+            .why-choose-title {
+                font-size: 2.2rem;
+                margin-bottom: 1.5rem;
+            }
+            .how-to-start-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for desktop */
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+                padding: 0 2rem; /* Ajustar padding horizontal para desktop */
+            }
+            .how-to-start-card {
+                padding: 1.5rem;
+                min-height: 150px; /* Ajustar altura mínima para desktop */
+            }
+            .how-to-start-card .number {
+                font-size: 2.5rem;
+            }
+            .how-to-start-card .title {
+                font-size: 1.15rem;
+            }
+            .how-to-start-card p {
+                font-size: 0.9rem;
+            }
+            .plans-section {
+                padding: 2.5rem 2rem; /* Ajustar padding para desktop */
+                margin-bottom: 2rem;
+            }
+            .plans-header {
+                margin-bottom: 2rem;
+            }
+            .plans-header h2 {
+                font-size: 2.2rem;
+                margin-bottom: 0.5rem;
+            }
+            .plans-header p {
+                font-size: 1.1rem;
+            }
+            .centered-info {
+                margin-top: 0.75rem;
+                font-size: 0.85rem; /* Volver al tamaño original para desktop */
+            }
+            .centered-info .info-line .icon {
+                font-size: 1.5rem;
+            }
+            .centered-info .text-red-600 {
+                font-size: 0.9rem; /* Volver al tamaño original para desktop */
+            }
+            .cta-final-section {
+                margin-top: 4rem; /* Ajustado para desktop, menos que el original para mantener la coherencia */
+                padding: 2.5rem; /* Ajustado para desktop */
+            }
+            .cta-final-section h2 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+            .cta-final-section p {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Encabezado con logo -->
-        <header class="text-center mb-8">
-            <!-- Placeholder para el logo -->
-            <img src="https://res.cloudinary.com/dbaubflvo/image/upload/v1750432509/Agustina_Rivero_-_copia_c7ydv1.png" alt="Logo Agustina Rivero Coach Fitness" class="mx-auto mb-4 rounded-lg shadow-md">
-            </h1>
-            <p class="text-xl font-semibold text-gray-700">
-                Entrenamiento Personalizado
-            </p>
-            <p class="text-by-agustina text-2xl font-bold mt-2">
-                PLAN ONLINE FEMENINO
-            </p>
-        </header>
+    <!-- Header (Navigation Bar) -->
+    <header class="navbar">
+        <div class="flex items-center">
+            <!-- Logo en la barra de navegación -->
+            <img src="https://placehold.co/150x40/f8f8f8/4d98c5?text=TU+LOGO" alt="Logo Agustina Rivero Coach Fitness" class="navbar-logo">
+        </div>
+    </header>
 
-        <!-- Sección: ¿QUÉ INCLUYE EL SERVICIO? -->
-        <section class="mb-8 p-4 bg-white rounded-xl shadow-sm">
-            <h2 class="text-gray-800 font-bold">💪 ¿QUÉ INCLUYE EL SERVICIO?</h2>
-            <ul class="space-y-3">
-                <li>Rutina personalizada según tu objetivo y nivel</li>
-                <li>Tips nutricionales para acompañar tu entrenamiento</li>
-                <li>Seguimiento online</li>
-            </ul>
-            <p class="text-gray-600 font-semibold mt-4 text-lg">
-                ⚠️ No es entrenamiento presencial
-            </p>
-        </section>
+    <!-- El contenido principal ya no está dentro de un div.container -->
 
-        <!-- Sección: ¿QUÉ RECIBÍS? -->
-        <section class="mb-8 p-4 bg-white rounded-xl shadow-sm">
-            <h2 class="text-gray-800 font-bold">📦 ¿QUÉ RECIBÍS?</h2>
-            <ul class="space-y-3">
-                <li>PDF con rutina semanal explicada</li>
-                <li>Tips de alimentación y suplementación</li>
-                <li>Recomendaciones para potenciar tus entrenamientos</li>
-                <li>Plan adaptado a tu disponibilidad, objetivo y experiencia</li>
-            </ul>
-        </section>
+    <!-- 1. Sección Hero (Encabezado principal) -->
+    <section class="hero-section">
+        <div class="hero-content max-w-3xl mx-auto"> <!-- Añadir max-width y mx-auto para centrar contenido -->
+            <h1 class="font-heading-montserrat">Transformá tu cuerpo y tu rutina con entrenamientos hechos para vos.</h1>
+            <p class="subtitle">Entrená con acompañamiento humano y profesional.<br>Elegí tu formato ideal: online, en sala o presencial 1 a 1.</p>
+            <a href="#elegir-plan" class="btn-primary">Ver planes</a>
+        </div>
+    </section>
 
-        <!-- Sección: ¿POR QUÉ PERSONALIZADO? -->
-        <section class="mb-8 p-4 bg-white rounded-xl shadow-sm">
-            <h2 class="text-gray-800 font-bold">🧠 ¿POR QUÉ PERSONALIZADO?</h2>
-            <p class="section-text">
-                Porque cada cuerpo es único, y tu plan también debe serlo.
-            </p>
-            <p class="section-text">
-                Hecho por una entrenadora que te acompaña con cercanía y experiencia.
-            </p>
-        </section>
-
-        <!-- Sección: DURACIÓN DEL PLAN -->
-        <section class="mb-8 p-4 bg-white rounded-xl shadow-sm">
-            <h2 class="text-gray-800 font-bold">🗓️ DURACIÓN DEL PLAN</h2>
-            <p class="section-text">
-                Plan mensual diseñado para entrenar durante 4 semanas y luego renovar.
-            </p>
-        </section>
-
-        <!-- Sección: PLANES -->
-        <section class="mb-8 p-4 bg-white rounded-xl shadow-sm">
-            <h2 class="text-gray-800 font-bold">💰 PLANES</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                <!-- Tarjeta de Plan: Rutina personalizada -->
-                <div class="price-card">
-                    <h3 class="text-xl font-semibold mb-2">🔸 Rutina personalizada</h3>
-                    <p class="price-value">$1400</p>
-                    <p class="text-lg text-gray-600">(<span class="font-bold text-green-700">$1000</span> socias Infinity)</p>
-                </div>
-
-                <!-- Tarjeta de Plan: Rutina + tips nutricionales -->
-                <div class="price-card">
-                    <h3 class="text-xl font-semibold mb-2">🔸 Rutina + tips nutricionales</h3>
-                    <p class="price-value">$1700</p>
-                    <p class="text-lg text-gray-600">(<span class="font-bold text-green-700">$1300</span> socias Infinity)</p>
+    <!-- Nueva sección: ¿Por qué elegir un plan personalizado? -->
+    <section id="por-que-elegir" class="mb-8 p-4 bg-white rounded-xl shadow-sm">
+        <h2 class="why-choose-title font-heading-montserrat">¿Por qué elegir un plan personalizado?</h2>
+        <div class="benefits-grid max-w-5xl mx-auto"> <!-- Añadir max-width y mx-auto para centrar la cuadrícula -->
+            <!-- 1. Adaptado a tu objetivo -->
+            <div class="card benefit-card">
+                <span class="icon">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    width="48px" height="48px" viewBox="0 0 512.000000 512.000000"
+                    preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                    fill="#4d98c5" stroke="none">
+                    <path d="M3647 4453 l-409 -408 6 -62 c3 -35 3 -63 1 -63 -2 0 -31 16 -65 36
+                    -33 19 -112 57 -174 84 -701 301 -1507 169 -2085 -340 -363 -320 -601 -788
+                    -651 -1279 -58 -581 152 -1166 569 -1582 498 -496 1216 -691 1891 -513 294 77
+                    575 228 809 434 465 410 716 1054 651 1668 -28 264 -119 556 -234 752 -20 34
+                    -36 63 -36 65 0 2 28 2 63 -1 l62 -6 408 409 c433 435 434 436 388 482 -22 22
+                    -30 23 -370 57 -140 13 -256 26 -258 27 -1 2 -14 117 -28 257 -34 346 -34 349
+                    -56 371 -46 46 -47 45 -482 -388z m404 -56 l23 -228 -290 -290 c-159 -159
+                    -292 -289 -295 -289 -4 0 -29 89 -57 198 l-49 197 320 322 c177 177 322 321
+                    323 320 2 -1 13 -105 25 -230z m359 -347 c107 -11 201 -20 210 -20 8 0 -131
+                    -146 -309 -324 l-323 -323 -196 49 c-108 27 -199 51 -201 54 -3 3 125 135 284
+                    294 228 228 295 290 315 290 14 0 113 -9 220 -20z m-1851 -20 c225 -41 479
+                    -142 667 -265 l81 -53 31 -123 31 -124 -604 -605 c-468 -468 -605 -611 -605
+                    -629 0 -33 37 -71 69 -71 21 0 145 119 631 605 l605 605 95 -24 c52 -13 108
+                    -27 123 -30 57 -13 214 -299 287 -521 65 -200 84 -327 84 -555 0 -114 -5 -228
+                    -12 -275 -133 -812 -736 -1415 -1547 -1546 -103 -17 -426 -17 -530 -1 -1221
+                    196 -1913 1486 -1389 2592 271 573 814 961 1454 1040 122 15 398 4 529 -20z"/>
+                    <path d="M2090 3593 c-316 -34 -596 -169 -825 -398 -203 -203 -326 -433 -382
+                    -712 -24 -121 -24 -385 0 -506 111 -555 538 -983 1094 -1094 122 -24 384 -24
+                    506 0 338 68 635 253 840 525 260 346 342 792 221 1210 -42 147 -177 407 -224
+                    432 -33 18 -67 11 -90 -17 -26 -34 -21 -57 29 -132 88 -130 161 -320 186 -488
+                    59 -389 -67 -768 -349 -1049 -179 -179 -376 -286 -626 -340 -119 -25 -363 -26
+                    -480 0 -251 54 -447 161 -626 340 -227 227 -345 494 -360 816 -16 347 109 667
+                    360 916 152 151 284 234 481 300 354 118 745 67 1057 -138 59 -38 83 -49 102
+                    -44 37 9 56 34 56 72 0 29 -7 39 -47 69 -74 54 -298 162 -395 189 -161 46
+                    -373 66 -528 49z"/>
+                    <path d="M2119 2581 c-151 -48 -259 -194 -259 -351 0 -112 66 -239 156 -301
+                    96 -66 213 -84 322 -51 119 38 205 122 242 241 27 85 26 132 -3 159 -51 48
+                    -110 13 -121 -71 -15 -116 -93 -192 -211 -204 -57 -6 -129 19 -174 60 -36 33
+                    -71 115 -71 167 0 52 35 134 71 167 35 32 108 63 150 63 69 0 103 74 56 118
+                    -29 27 -80 28 -158 3z"/>
+                    </g>
+                    </svg>
+                </span>
+                <div class="text-content">
+                    <h3>Adaptado a tu objetivo</h3>
+                    <p>No es lo mismo querer aumentar masa muscular que buscar recomposición corporal o tonificar. Tu plan se diseña en función de lo que vos querés lograr.</p>
                 </div>
             </div>
 
-            <!-- Beneficio exclusivo para socias Infinity -->
-            <div class="infinity-benefit">
-                <p class="font-semibold text-blue-800">✨ Beneficio exclusivo para socias Infinity:</p>
-                <p class="text-blue-900">Presencia de la instructora Agustina Rivero en sala, de 10:00 a 15:00 hs.</p>
+            <!-- 2. Ajustado a tu nivel y experiencia -->
+            <div class="card benefit-card">
+                <span class="icon">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    width="48px" height="48px" viewBox="0 0 512.000000 512.000000"
+                    preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                    fill="#4d98c5" stroke="none">
+                    <path d="M2500 5103 c-40 -15 -72 -68 -196 -322 -74 -151 -135 -276 -137 -277
+                    -1 -1 -130 -21 -287 -43 -157 -23 -301 -46 -322 -51 -20 -6 -50 -26 -67 -45
+                    -25 -29 -31 -45 -31 -81 0 -25 5 -55 11 -67 6 -12 111 -119 233 -238 l221
+                    -216 -50 -289 c-27 -159 -49 -308 -49 -331 2 -70 67 -133 138 -133 15 0 88 32
+                    162 70 75 39 138 70 139 70 2 0 5 -63 7 -141 3 -134 4 -142 27 -160 30 -25 62
+                    -24 94 1 l26 21 3 299 c3 283 4 300 24 327 11 15 37 36 57 46 68 34 149 -9
+                    168 -90 5 -21 9 -324 9 -674 0 -603 1 -637 18 -652 25 -22 85 -22 105 1 12 14
+                    16 52 19 207 3 167 5 193 22 218 39 57 114 73 174 37 57 -35 62 -62 62 -320
+                    l0 -231 25 -24 c27 -28 42 -30 78 -14 41 19 47 48 47 240 l0 179 33 36 c58 64
+                    152 55 197 -19 18 -30 20 -52 20 -285 l0 -253 25 -24 c31 -32 69 -32 100 0 25
+                    24 25 26 25 208 0 175 1 186 23 218 32 48 91 68 143 48 23 -9 48 -29 62 -49
+                    l23 -34 -5 -721 c-2 -396 -7 -743 -11 -770 -5 -42 -3 -53 12 -67 33 -30 67
+                    -32 97 -6 52 46 56 103 56 877 0 799 4 758 -85 848 -39 38 -66 55 -105 67 -80
+                    24 -121 20 -210 -18 -11 -4 -21 5 -35 30 -29 53 -100 112 -158 129 -69 20
+                    -116 19 -184 -6 -47 -18 -58 -19 -61 -8 -3 8 -26 35 -52 60 -75 74 -168 94
+                    -292 63 l-28 -6 0 211 c0 116 2 211 5 211 3 0 70 -34 150 -75 79 -41 156 -75
+                    170 -75 73 0 137 61 139 133 0 23 -21 171 -49 329 l-49 286 42 46 c30 33 42
+                    54 42 76 0 40 -31 70 -73 70 -27 0 -43 -11 -90 -58 -31 -32 -61 -72 -66 -90
+                    -8 -25 2 -99 40 -320 27 -158 48 -292 47 -298 -2 -5 -72 26 -155 70 l-153 81
+                    0 80 c0 97 -26 161 -88 217 -57 52 -105 70 -183 71 -78 0 -136 -24 -194 -80
+                    -54 -53 -77 -111 -83 -214 l-5 -88 -141 -74 c-77 -40 -142 -69 -144 -63 -1 6
+                    20 140 47 298 39 225 48 295 40 321 -7 25 -65 89 -229 251 -187 184 -216 217
+                    -197 221 12 2 148 22 302 44 206 30 286 45 305 59 16 11 74 115 165 295 l140
+                    277 140 -277 c89 -177 149 -284 165 -295 18 -13 101 -29 305 -58 154 -23 291
+                    -43 304 -46 23 -5 21 -9 -43 -68 -63 -59 -67 -65 -64 -101 4 -49 42 -81 84
+                    -71 31 8 168 137 190 178 8 15 14 47 14 72 0 36 -6 52 -30 80 -17 19 -45 39
+                    -63 45 -18 5 -162 29 -322 51 -159 23 -291 43 -292 44 -2 1 -63 126 -137 277
+                    -74 151 -146 285 -160 298 -19 18 -39 25 -78 27 -29 2 -60 1 -68 -3z"/>
+                    <path d="M775 4297 c-17 -8 -35 -20 -42 -28 -6 -8 -55 -102 -108 -209 -53
+                    -107 -98 -196 -100 -198 -2 -2 -95 -17 -207 -33 -248 -35 -240 -33 -277 -65
+                    -33 -27 -47 -76 -37 -121 5 -18 65 -84 172 -188 l166 -160 -36 -205 c-20 -113
+                    -36 -222 -36 -242 0 -47 38 -94 89 -109 46 -14 52 -11 291 114 90 48 168 87
+                    173 87 5 0 95 -46 201 -102 154 -82 199 -102 231 -102 53 1 90 26 109 74 14
+                    36 13 50 -23 260 l-39 223 169 166 c168 165 169 166 169 209 0 48 -21 91 -54
+                    112 -11 7 -119 28 -240 46 -120 18 -221 36 -225 39 -3 4 -51 95 -106 203 -61
+                    120 -110 203 -125 214 -35 25 -80 30 -115 15z m257 -561 c19 -14 81 -27 219
+                    -47 106 -16 197 -30 202 -32 5 -1 -56 -65 -137 -141 -109 -104 -149 -148 -157
+                    -175 -9 -30 -5 -71 24 -233 19 -109 33 -198 31 -198 -1 0 -86 43 -188 95 -101
+                    52 -194 95 -205 95 -11 0 -104 -43 -206 -96 -102 -52 -185 -91 -185 -87 0 4
+                    14 92 31 194 20 117 29 198 25 221 -5 28 -35 63 -151 178 -80 78 -144 144
+                    -142 146 2 2 91 17 198 32 107 16 205 35 218 43 14 9 58 85 118 204 l95 189
+                    92 -184 c60 -123 100 -191 118 -204z"/>
+                    <path d="M4265 4303 c-41 -10 -69 -53 -165 -244 -78 -156 -104 -198 -122 -202
+                    -13 -3 -108 -18 -213 -33 -104 -14 -204 -33 -220 -40 -41 -19 -65 -62 -65
+                    -116 0 -43 1 -44 169 -209 l169 -166 -39 -222 c-36 -211 -37 -225 -23 -261 19
+                    -48 56 -73 109 -74 32 0 77 20 232 102 106 56 197 102 202 102 6 0 91 -43 190
+                    -95 99 -53 194 -101 210 -106 67 -23 151 38 151 109 0 20 -16 129 -36 242
+                    l-36 205 166 160 c108 104 167 170 172 188 10 45 -4 94 -37 121 -37 32 -29 30
+                    -277 65 -112 16 -205 31 -207 33 -2 2 -48 93 -102 202 -59 119 -109 207 -124
+                    218 -27 20 -73 29 -104 21z m129 -370 c58 -117 103 -193 117 -202 12 -7 110
+                    -27 218 -43 107 -16 197 -30 199 -32 2 -2 -62 -68 -142 -146 -118 -116 -147
+                    -149 -152 -178 -5 -23 5 -103 25 -221 17 -102 31 -190 31 -194 0 -4 -83 35
+                    -185 88 -101 52 -194 95 -205 95 -11 0 -104 -43 -205 -95 -102 -52 -186 -95
+                    -188 -95 -2 0 11 89 30 198 29 163 33 203 24 233 -8 28 -47 71 -157 175 -80
+                    78 -144 144 -142 146 2 2 91 17 198 32 107 16 205 35 218 43 14 9 58 85 118
+                    204 l95 189 92 -184 c60 -123 100 -191 118 -204z"/>
+                    <path d="M2299 2641 l-24 -19 -5 -326 -5 -325 -139 151 c-115 124 -149 155
+                    -195 176 -148 68 -325 -1 -392 -153 -26 -59 -29 -162 -7 -215 8 -19 132 -230
+                    276 -468 l261 -433 32 -157 c38 -191 74 -293 141 -402 127 -206 336 -364 573
+                    -432 69 -20 103 -23 250 -23 147 0 180 3 249 23 165 48 302 126 419 241 131
+                    127 164 194 117 241 -31 31 -77 26 -108 -12 -205 -246 -404 -348 -679 -348
+                    -316 0 -588 170 -731 456 -38 76 -54 132 -92 319 l-30 150 -262 434 c-144 238
+                    -267 451 -275 473 -18 54 -3 107 41 146 42 37 82 47 134 32 34 -9 65 -37 203
+                    -188 226 -247 231 -252 274 -252 27 0 44 8 66 29 l29 29 0 416 0 415 -26 20
+                    c-33 26 -65 27 -95 2z"/>
+                    </g>
+                    </svg>
+                </span>
+                <div class="text-content">
+                    <h3>Ajustado a tu nivel y experiencia</h3>
+                    <p>Tanto si estás empezando como si entrenás hace tiempo, el plan se adapta a tu punto de partida para evitar frustraciones y avanzar con lógica.</p>
+                </div>
             </div>
-        </section>
 
-        <!-- Sección: ¿CÓMO TRABAJAMOS? -->
-        <section class="p-4 bg-white rounded-xl shadow-sm">
-            <h2 class="text-gray-800 font-bold">⚙️ ¿CÓMO TRABAJAMOS?</h2>
-            <div class="space-y-4 mt-4">
-                <div class="how-it-works-item">
-                    <span class="how-it-works-number">1</span>
-                    <p>Me escribís con tu nombre, objetivo y plan deseado</p>
-                </div>
-                <div class="how-it-works-item">
-                    <span class="how-it-works-number">2</span>
-                    <p>Realizás el pago (efectivo o transferencia)</p>
-                </div>
-                <div class="how-it-works-item">
-                    <span class="how-it-works-number">3</span>
-                    <p>En 24 a 48 hs recibís tu plan personalizado en PDF</p>
-                </div>
-                <div class="how-it-works-item">
-                    <span class="how-it-works-number">4</span>
-                    <p>Lo implementás con mis recomendaciones</p>
-                </div>
-                <div class="how-it-works-item">
-                    <span class="how-it-works-number">5</span>
-                    <p>Tenés seguimiento para dudas y ajustes durante el mes</p>
+            <!-- 3. En función de tu disponibilidad real -->
+            <div class="card benefit-card">
+                <span class="icon">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    width="48px" height="48px" viewBox="0 0 512.000000 512.000000"
+                    preserveAspectRatio="xMidYMid meet">
+
+                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                    fill="#4d98c5" stroke="none">
+                    <path d="M1184 5000 c-50 -15 -125 -71 -161 -118 -42 -55 -63 -128 -63 -218
+                    l0 -72 -207 -4 c-175 -5 -218 -9 -274 -27 -172 -55 -308 -200 -354 -377 -23
+                    -87 -23 -3160 0 -3247 46 -177 180 -320 354 -380 l66 -22 1194 -3 1195 -3 90
+                    -87 c229 -221 502 -332 815 -332 312 0 585 110 810 324 234 224 361 521 361
+                    847 0 313 -111 586 -332 815 l-87 90 -3 980 c-3 917 -4 982 -22 1034 -60 182
+                    -188 309 -366 365 -42 14 -104 19 -261 22 l-207 5 -4 97 c-3 79 -9 105 -31
+                    147 -119 233 -453 232 -568 -1 -26 -53 -32 -80 -37 -155 l-5 -90 -742 0 -743
+                    0 -4 93 c-3 76 -9 103 -31 149 -31 62 -84 116 -149 149 -48 25 -180 36 -234
+                    19z m147 -216 c53 -27 59 -59 59 -304 0 -168 -3 -229 -14 -255 -15 -35 -59
+                    -65 -96 -65 -37 0 -81 30 -96 65 -18 44 -20 454 -3 504 13 36 61 71 97 71 13
+                    0 37 -7 53 -16z m2158 -18 l26 -26 0 -259 0 -259 -24 -26 c-48 -51 -142 -40
+                    -170 20 -15 33 -15 494 0 527 27 60 118 73 168 23z m-2527 -489 c5 -110 34
+                    -183 98 -241 73 -66 114 -81 220 -81 106 0 147 15 220 81 64 58 93 131 98 241
+                    l4 93 743 0 742 0 5 -89 c7 -109 36 -181 103 -245 65 -63 138 -89 235 -84 120
+                    7 213 67 268 173 21 41 27 67 30 148 l4 97 188 0 c149 0 199 -4 240 -17 65
+                    -21 142 -89 178 -157 26 -50 27 -55 30 -258 l3 -208 -2025 0 -2026 0 0 183 c0
+                    207 10 259 63 329 36 48 112 103 161 117 17 5 117 10 222 10 l192 1 4 -93z
+                    m3408 -1353 c0 -473 -3 -595 -12 -591 -197 86 -285 108 -473 114 -169 6 -275
+                    -8 -410 -53 -105 -35 -254 -112 -335 -173 -84 -63 -214 -199 -269 -280 -65
+                    -95 -137 -253 -166 -366 -33 -123 -44 -336 -25 -466 12 -89 60 -249 91 -311
+                    11 -21 19 -40 19 -43 0 -3 -505 -4 -1122 -3 l-1123 3 -43 23 c-66 35 -119 88
+                    -149 150 l-28 57 -3 1268 -2 1267 2025 0 2025 0 0 -596z m-299 -713 c300 -78
+                    547 -293 658 -572 53 -132 65 -199 65 -359 0 -160 -12 -227 -65 -359 -47 -117
+                    -114 -217 -213 -317 -134 -133 -280 -215 -462 -261 -105 -26 -334 -24 -441 4
+                    -352 93 -609 348 -705 702 -28 102 -31 342 -5 445 96 381 389 659 770 732 100
+                    19 299 12 398 -15z"/>
+                    <path d="M912 3295 c-62 -19 -106 -57 -136 -117 -24 -49 -26 -61 -26 -192 0
+                    -159 11 -196 71 -253 57 -54 92 -63 247 -63 129 0 142 2 190 26 98 49 132 124
+                    132 289 0 133 -19 196 -74 251 -56 56 -118 74 -255 73 -58 0 -125 -6 -149 -14z
+                    m256 -307 l-3 -103 -100 0 -100 0 -3 89 c-2 49 -1 95 2 103 4 10 32 13 106 13
+                    l101 0 -3 -102z"/>
+                    <path d="M1785 3301 c-79 -20 -152 -88 -173 -160 -7 -21 -12 -94 -12 -162 0
+                    -109 3 -130 24 -174 25 -54 71 -100 123 -122 22 -9 78 -13 173 -13 95 0 151 4
+                    173 13 52 22 98 68 123 122 21 44 24 65 24 174 0 143 -10 186 -58 241 -59 69
+                    -98 83 -242 86 -69 2 -138 0 -155 -5z m240 -316 l0 -100 -105 0 -105 0 -3 89
+                    c-2 49 0 96 2 103 4 11 29 13 108 11 l103 -3 0 -100z"/>
+                    <path d="M2610 3290 c-114 -39 -160 -127 -160 -305 0 -165 34 -240 132 -289
+                    48 -24 61 -26 190 -26 155 0 190 9 247 63 60 57 71 94 71 253 0 131 -2 143
+                    -26 192 -49 99 -123 132 -293 132 -77 -1 -121 -6 -161 -20z m265 -305 l0 -100
+                    -100 0 -100 0 -3 103 -3 103 103 -3 103 -3 0 -100z"/>
+                    <path d="M3472 3295 c-62 -19 -106 -57 -136 -117 -24 -49 -26 -61 -26 -192 0
+                    -159 11 -196 71 -253 57 -54 92 -63 247 -63 129 0 142 2 190 26 98 49 132 124
+                    132 289 0 133 -19 196 -74 251 -56 56 -118 74 -255 73 -58 0 -125 -6 -149 -14z
+                    m256 -307 l-3 -103 -100 0 -100 0 -3 89 c-2 49 -1 95 2 103 4 10 32 13 106 13
+                    l101 0 -3 -102z"/>
+                    <path d="M885 2431 c-22 -10 -54 -34 -72 -52 -54 -57 -63 -92 -63 -247 0 -129
+                    2 -141 26 -191 49 -98 125 -131 298 -131 123 0 189 20 242 74 55 55 74 118 74
+                    251 0 166 -37 246 -134 291 -46 22 -64 24 -191 24 -115 0 -147 -4 -180 -19z
+                    m283 -299 l3 -103 -103 3 -103 3 -3 89 c-2 49 0 96 2 103 4 11 28 13 103 11
+                    l98 -3 3 -103z"/>
+                    <path d="M1745 2436 c-51 -22 -97 -68 -121 -121 -21 -44 -24 -65 -24 -174 0
+                    -143 10 -186 58 -241 63 -74 96 -85 262 -85 166 0 199 11 262 85 48 55 58 98
+                    58 241 0 109 -3 130 -24 174 -25 54 -71 100 -123 122 -44 18 -306 18 -348 -1z
+                    m280 -301 l0 -100 -105 0 -105 0 -3 89 c-2 49 0 96 2 103 4 11 29 13 108 11
+                    l103 -3 0 -100z"/>
+                    <path d="M885 1576 c-54 -25 -100 -71 -122 -123 -18 -45 -18 -301 0 -346 22
+                    -52 68 -98 122 -123 44 -21 65 -24 174 -24 143 0 186 10 241 58 74 63 85 96
+                    85 262 0 166 -11 199 -85 262 -55 48 -98 58 -241 58 -109 0 -130 -3 -174 -24z
+                    m280 -296 l0 -105 -100 0 -100 0 -3 94 c-1 52 0 101 2 108 4 11 28 13 103 11
+                    l98 -3 0 -105z"/>
+                    <path d="M1759 1587 c-57 -21 -97 -54 -126 -105 -27 -46 -28 -51 -28 -203 l0
+                    -156 30 -49 c19 -30 49 -60 79 -79 l49 -30 157 0 157 0 49 30 c30 19 60 49 79
+                    79 l30 49 0 157 0 157 -30 49 c-19 30 -49 60 -79 79 -48 29 -53 30 -190 33
+                    -99 1 -152 -2 -177 -11z m259 -209 c7 -7 12 -44 12 -98 0 -54 -5 -91 -12 -98
+                    -16 -16 -180 -16 -196 0 -7 7 -12 44 -12 98 0 54 5 91 12 98 7 7 44 12 98 12
+                    54 0 91 -5 98 -12z"/>
+                    <path d="M3793 2014 c-61 -30 -63 -46 -63 -414 0 -370 2 -385 65 -414 28 -14
+                    83 -16 365 -16 370 0 385 2 414 65 20 41 20 49 0 90 -29 61 -50 65 -353 65
+                    l-271 0 0 271 c0 303 -4 324 -65 353 -41 20 -52 20 -92 0z"/>
+                    </g>
+                    </svg>
+                </span>
+                <div class="text-content">
+                    <h3>En función de tu disponibilidad real</h3>
+                    <p>No todas las personas pueden entrenar la misma cantidad de veces. El plan se organiza en base a tus tiempos para que puedas sostenerlo.</p>
                 </div>
             </div>
-        </section>
-    </div>
+
+            <!-- 4. Enfoque técnico y progresivo -->
+            <div class="card benefit-card">
+                <span class="icon">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    width="48px" height="48px" viewBox="0 0 512.000000 512.000000"
+                    preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                    fill="#4d98c5" stroke="none">
+                    <path d="M2223 5102 c-97 -34 -171 -111 -198 -206 -8 -28 -24 -107 -35 -176
+                    -11 -69 -25 -148 -31 -177 l-10 -51 -72 -27 c-40 -14 -118 -47 -174 -72 l-102
+                    -46 -153 110 c-84 61 -168 118 -186 127 -78 40 -200 37 -287 -6 -23 -12 -125
+                    -105 -236 -217 -231 -232 -244 -252 -243 -381 0 -105 10 -127 159 -334 l106
+                    -148 -49 -112 c-28 -61 -58 -136 -67 -166 -10 -30 -22 -60 -29 -66 -6 -6 -96
+                    -25 -201 -42 -213 -36 -270 -57 -330 -124 -21 -22 -47 -61 -59 -87 -20 -44
+                    -21 -61 -21 -351 l0 -305 28 -57 c30 -62 84 -116 147 -148 25 -13 117 -34 243
+                    -55 111 -19 203 -35 203 -35 1 0 12 -28 24 -62 13 -35 45 -113 73 -175 l49
+                    -112 -116 -163 c-132 -186 -150 -227 -144 -331 6 -117 26 -146 242 -364 228
+                    -229 259 -248 391 -247 99 0 117 9 323 156 l153 110 102 -45 c56 -25 131 -55
+                    167 -68 36 -12 66 -23 68 -24 1 -1 18 -93 37 -203 21 -125 42 -217 55 -242 32
+                    -63 86 -117 148 -147 l57 -28 305 0 305 0 57 28 c65 32 122 90 150 153 10 24
+                    34 132 53 240 18 108 35 197 37 198 2 2 39 15 83 31 44 16 121 47 171 71 l92
+                    42 153 -110 c213 -152 215 -153 324 -153 133 0 159 17 386 244 214 213 239
+                    251 247 366 6 99 -17 150 -152 340 l-113 159 41 91 c23 49 55 127 72 173 21
+                    61 34 84 49 87 11 3 101 18 199 35 202 33 262 56 321 122 21 22 47 61 59 87
+                    20 44 21 61 21 351 l0 -305 28 -57 c-30 61 -84 116 -145 147 -23 12 -115 33
+                    -223 51 -101 17 -193 35 -204 39 -14 6 -31 38 -54 102 -18 52 -49 124 -67 161
+                    -19 37 -34 73 -34 80 0 7 49 82 109 165 60 84 117 170 127 190 29 60 31 175 3
+                    248 -20 54 -41 79 -223 261 -225 225 -255 246 -368 252 -100 6 -145 -14 -332
+                    -148 l-167 -118 -92 43 c-51 24 -128 56 -172 71 -44 15 -84 31 -89 35 -5 4
+                    -24 95 -42 201 -38 216 -60 274 -126 333 -85 77 -97 80 -423 82 -258 3 -296 1
+                    -342 -15z m574 -284 c5 -7 26 -114 47 -238 20 -126 45 -240 55 -260 21 -42 67
+                    -67 206 -110 55 -18 163 -63 241 -101 91 -45 153 -69 175 -69 44 0 79 21 283
+                    168 92 67 176 122 185 122 22 0 341 -321 341 -343 0 -9 -61 -103 -135 -207
+                    -138 -193 -155 -223 -155 -266 0 -13 31 -87 69 -165 38 -77 88 -198 111 -268
+                    40 -126 57 -154 106 -179 12 -6 120 -27 240 -47 121 -20 229 -40 -241 -45 22
+                    -10 22 -10 22 -250 0 -240 0 -240 -22 -250 -13 -5 -121 -25 -240 -44 -119 -20
+                    -227 -40 -241 -45 -35 -13 -75 -65 -114 88 -97 25 -200 65 -324 125 -140 68 -180 76 -234 49 -16 -9 -111
+                    -74 -211 -145 -99 -72 -188 -130 -197 -130 -22 0 -341 321 -341 343 0 10 63
+                    106 139 213 104 145 141 205 146 235 6 37 0 54 -64 185 -40 79 -90 199 -112
+                    267 -61 186 -49 179 -351 231 -134 24 -250 46 -256 50 -16 9 -17 482 -2 491 6
+                    4 113 24 238 45 125 21 239 43 253 48 37 14 77 66 89 115 27 103 76 231 129
+                    337 69 138 75 158 58 207 -7 21 -75 124 -150 230 -75 106 -137 198 -137 205 0
+                    8 76 89 169 182 157 155 171 167 191 156 12 -7 101 -68 198 -138 181 -130 234
+                    -157 280 -145 15 3 84 35 153 70 69 34 180 81 247 103 67 22 131 45 143 52 43
+                    27 57 70 99 312 22 132 43 243 46 248 3 4 112 8 243 8 179 0 241 -3 248 -12z"/>
+                    <path d="M2463 3659 c-412 -36 -776 -307 -929 -692 -98 -247 -99 -554 -4 -802
+                    112 -289 346 -523 635 -635 186 -71 418 -90 617 -50 620 127 1007 753 843
+                    1367 -116 436 -518 778 -950 809 -44 3 -89 6 -100 8 -11 2 -61 -1 -112 -5z
+                    m277 -305 c302 -65 545 -309 616 -619 21 -92 21 -258 -1 -355 -23 -102 -101
+                    -260 -169 -341 -248 -296 -678 -378 -1015 -193 -439 241 -559 813 -254 1212
+                    76 99 169 174 288 232 175 85 345 105 535 64z"/>
+                    </g>
+                    </svg>
+                </span>
+                <div class="text-content">
+                    <h3>Enfoque técnico y progresivo</h3>
+                    <p>Cada ejercicio, serie y carga está pensada con una lógica detrás. El entrenamiento avanza mes a mes para que no te estanques.</p>
+                </div>
+            </div>
+
+            <!-- 5. Mantenés la motivación y el foco -->
+            <div class="card benefit-card">
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up">
+                        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                        <polyline points="16 7 22 7 22 13"/>
+                    </svg>
+                </span>
+                <div class="text-content">
+                    <h3>Mantenés la motivación y el foco</h3>
+                    <p>Tener un plan claro, con objetivos y seguimiento, te ayuda a mantenerte enfocada y sostener el entrenamiento en el tiempo.</p>
+                </div>
+            </div>
+
+            <!-- 6. Tenés seguimiento y ajustes -->
+            <div class="card benefit-card">
+                <span class="icon">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    width="48px" height="48px" viewBox="0 0 512.000000 512.000000"
+                    preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                    fill="#4d98c5" stroke="none">
+                    <path d="M3015 5109 c-858 -90 -1551 -758 -1679 -1621 -21 -137 -21 -397 -1
+                    -537 30 -202 95 -410 182 -586 42 -83 123 -215 165 -268 l31 -39 -99 -99 -100
+                    -100 -49 12 c-102 23 -89 32 -773 -569 -356 -312 -629 -559 -644 -583 -54 -82
+                    -60 -191 -18 -286 30 -67 336 -373 403 -403 95 -42 204 -36 286 18 24 15 271
+                    288 583 644 601 684 592 671 569 773 l-12 49 100 100 99 99 39 -31 c54 -42
+                    185 -123 268 -165 178 -88 387 -153 595 -183 171 -24 471 -15 635 20 381 81
+                    705 256 967 522 170 174 264 304 363 509 89 -184 144 -357 177 -560 21 -131 15
+                    -457 -10 -595 -98 534 -392 981 -837 1272 -356 233 -810 342 -1240 297z m390
+                    -149 c123 -15 257 -44 368 -80 128 -42 354 -157 467 -237 122 -88 316 -282
+                    402 -403 158 -224 264 -486 309 -765 22 -133 17 -428 -9 -567 -133 -710 -668
+                    -1257 -1377 -1408 -129 -28 -420 -38 -562 -20 -583 73 -1089 431 -1348 955
+                    -146 297 -191 505 -182 840 8 285 56 477 182 730 234 470 677 814 1190 924
+                    185 40 385 51 560 31z m-1555 -3245 l-90 -90 -67 68 -68 67 90 90 90 90 67
+                    -67 68 -68 -90 -90z m-263 -128 c79 -78 143 -150 143 -159 0 -15 -32 -57 -128
+                    -168 l-31 -35 -170 170 c-94 93 -171 173 -171 176 0 12 182 159 198 159 9 0
+                    81 -64 159 -143z m-130 -489 c-6 -9 -187 -217 -402 -461 -228 -260 -405 -454
+                    -426 -466 -43 -24 -89 -27 -127 -7 -41 22 -329 317 -342 349 -15 43 -12 75 11
+                    116 13 21 213 204 482 439 l460 404 178 -178 c157 -156 177 -180 166 -196z"/>
+                    <path d="M3087 4710 c-242 -23 -456 -95 -663 -223 -119 -73 -154 -107 -154
+                    -144 0 -37 37 -73 73 -73 17 0 59 22 109 56 350 239 793 302 1193 169 468
+                    -155 815 -561 900 -1050 22 -127 22 -338 0 -460 -33 -184 -112 -376 -219 -533
+                    -65 -94 -71 -129 -30 -161 33 -26 65 -27 92 -3 33 28 130 180 177 277 268 556
+                    170 1208 -249 1671 -299 330 -780 515 -1229 474z"/>
+                    <path d="M2064 4160 c-25 -10 -130 -163 -180 -262 -76 -151 -127 -316 -149
+                    -485 -97 -742 369 -1442 1092 -1639 354 -96 732 -59 1064 107 117 58 255 154
+                    268 187 21 50 -14 102 -69 102 -11 0 -55 -24 -98 -54 -147 -103 -322 -179
+                    -505 -218 -135 -28 -379 -31 -511 -5 -272 55 -491 167 -682 350 -212 202 -338
+                    432 -401 728 -26 127 -24 381 5 516 40 185 102 331 207 489 36 54 65 108 65
+                    120 0 47 -60 84 -106 64z"/>
+                    </g>
+                    </svg>
+                </span>
+                <div class="text-content">
+                    <h3>Tenés seguimiento y ajustes</h3>
+                    <p>No se trata solo de una rutina: tenés contacto, feedback y espacio para dudas o adaptaciones según cómo vayas evolucionando.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Elegí tu plan -->
+    <section id="elegir-plan" class="plans-section mb-8">
+        <div class="plans-header max-w-3xl mx-auto"> <!-- Centrar el header de planes -->
+            <h2 class="font-heading-montserrat">Elegí tu plan</h2>
+            <p>Todos los planes son mensuales y están diseñados para 4 semanas de entrenamiento.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4 max-w-5xl mx-auto"> <!-- Centrar la cuadrícula de planes -->
+
+            <!-- 1. Entrenamiento Personalizado Online -->
+            <div class="card plan-card">
+                <div class="plan-content-main">
+                    <h3>Entrenamiento Personalizado Online</h3>
+                    <p class="plan-subtitle">Pensado para quienes entrenan por su cuenta y buscan una rutina clara, adaptada a sus objetivos y con seguimiento durante el mes.</p>
+                    <ul>
+                        <li>PDF con rutina semanal personalizada</li>
+                        <li>Tips nutricionales</li>
+                        <li>Seguimiento online durante el mes</li>
+                    </ul>
+                </div>
+                <div class="plan-footer">
+                    <div class="price-container">
+                        <span class="price-value">$1700</span>
+                        <span class="price-unit">/mes</span>
+                    </div>
+                    <div class="centered-info">
+                        <!-- Contenido vacío para mantener la altura consistente -->
+                    </div>
+                    <!-- Botón "Contratar" para Entrenamiento Personalizado Online -->
+                    <a href="https://wa.link/rl5qve" target="_blank" class="btn-primary mt-4">Contratar</a>
+                </div>
+            </div>
+
+            <!-- 2. Entrenamiento Semi Personalizado (en sala) -->
+            <div class="card plan-card">
+                <div class="plan-content-main">
+                    <h3>Entrenamiento Semi Personalizado (en sala)</h3>
+                    <p class="plan-subtitle">Ideal para quienes entrenan en el gimnasio y quieren una rutina personalizada, con mi presencia y asistencia durante el horario de entrenamiento.</p>
+                    <ul>
+                        <li>PDF con rutina semanal personalizada</li>
+                        <li>Tips nutricionales</li>
+                        <li>Presencia y asistencia en sala</li>
+                    </ul>
+                </div>
+                <div class="plan-footer">
+                    <div class="price-container">
+                        <span class="price-value">$2500</span>
+                        <span class="price-unit">/mes</span>
+                    </div>
+                    <div class="centered-info">
+                        <p class="info-line">
+                            <span class="icon">🕒</span>
+                            <span class="text">Horarios disponibles: de 10:00 a 14:00</span>
+                        </p>
+                        <p class="info-line">
+                            <span class="icon">📍</span>
+                            <span class="text">Disponible en Gimnasio Infinity</span>
+                        </p>
+                        <p class="font-semibold text-red-600">CUPOS LIMITADOS</p>
+                    </div>
+                    <!-- Botón "Contratar" para Entrenamiento Semi Personalizado (en sala) -->
+                    <a href="https://wa.link/txy9n1" target="_blank" class="btn-primary mt-4">Contratar</a>
+                </div>
+            </div>
+
+            <!-- 3. Entrenamiento Presencial Individual -->
+            <div class="card plan-card">
+                <div class="plan-content-main">
+                    <h3>Entrenamiento Presencial Individual</h3>
+                    <p class="plan-subtitle">Pensado para quienes buscan una experiencia totalmente personalizada, con mi atención exclusiva durante toda la sesión.</p>
+                    <ul>
+                        <li>PDF con rutina semanal personalizada</li>
+                        <li>Tips nutricionales</li>
+                        <li>Entrenamiento 1 a 1</li>
+                    </ul>
+                </div>
+                <div class="plan-footer">
+                    <div class="price-container">
+                        <span class="price-value">$4800</span>
+                        <span class="price-unit">/mes</span>
+                    </div>
+                    <div class="centered-info">
+                        <p class="info-line">
+                            <span class="icon">🕒</span>
+                            <span class="text">Horarios disponibles: 15:00 y 16:00</span>
+                        </p>
+                        <p class="info-line">
+                            <span class="icon">📍</span>
+                            <span class="text">Disponible en Gimnasio Infinity</span>
+                        </p>
+                        <p class="font-semibold text-red-600">CUPOS LIMITADOS</p>
+                    </div>
+                    <!-- Botón "Contratar" para Entrenamiento Presencial Individual -->
+                    <a href="https://wa.link/mnaucd" target="_blank" class="btn-primary mt-4">Contratar</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. Cómo empezar -->
+    <section id="como-empezar" class="p-4 bg-white rounded-xl shadow-sm">
+        <h2 class="why-choose-title font-heading-montserrat">📝 Cómo empezar</h2>
+        <div class="how-to-start-grid max-w-5xl mx-auto"> <!-- Centrar la cuadrícula de cómo empezar -->
+            <div class="card how-to-start-card">
+                <span class="number">1</span>
+                <h3 class="title">Me escribís</h3>
+                <p>Con tu nombre, objetivo y plan deseado.</p>
+            </div>
+            <div class="card how-to-start-card">
+                <span class="number">2</span>
+                <h3 class="title">Realizás el pago</h3>
+                <p>Efectivo o transferencia.</p>
+            </div>
+            <div class="card how-to-start-card">
+                <span class="number">3</span>
+                <h3 class="title">Recibís tu plan</h3>
+                <p>En 24 a 48 hs, tu plan personalizado en PDF.</p>
+            </div>
+            <div class="card how-to-start-card">
+                <span class="number">4</span>
+                <h3 class="title">¡Empezamos a entrenar!</h3>
+                <p>Listo para transformar tu rutina.</p>
+            </div>
+        </div>
+        <!-- Frase movida a esta sección -->
+        <p class="text-center text-lg mt-8 text-gray-700">
+            Si querés un plan que te potencie y una entrenadora que te acompañe de verdad, te espero.
+        </p>
+    </section>
+
+    <!-- 7. CTA final + contacto -->
+    <section id="contacto-final" class="cta-final-section">
+        <h2 class="font-heading-montserrat">¿Te quedan dudas?</h2>
+        <a href="https://wa.link/9rtpou" target="_blank" class="btn-primary">
+            Escribime por WhatsApp
+        </a>
+    </section>
+
+    <!-- 2. Sobre Agustina (Coach) - Movido al final -->
+    <section id="sobre-agustina" class="about-me-section mb-8">
+        <h2 class="about-me-title font-heading-montserrat">Sobre mí</h2>
+        <p class="about-me-text">
+            Soy Agustina Rivero, <strong>entrenadora personal con foco en el entrenamiento femenino</strong>. Cuento con más de 10 años de <strong>experiencia y formación</strong>, y a lo largo del tiempo fui construyendo mi camino en esto que me apasiona. Hace 6 años <strong>fundó Infinity, el gimnasio donde hoy entreno y acompaño a muchas personas en sus procesos</strong>. Este año <strong>competí en categoría Bikini Senior del apertura 2025 donde logré el primer puesto</strong>, una experiencia que me marcó y me dio aún más herramientas para entender el cuerpo y el entrenamiento desde otro lugar.
+        </p>
+    </section>
+
 </body>
 </html>
